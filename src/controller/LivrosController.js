@@ -1,9 +1,22 @@
 import livros from "../models/Livro.js";
 
 class LivrosController {
+
     static listarLivros = (req,res) => {
         livros.find((error, livros) => {
             res.status(200).json(livros);
+        });
+    }
+
+    static listarLivroPorId = (req,res) => {
+        const {id} = req.params;
+
+        livros.findById(id, (error,livro) => {
+            if(error){
+                res.status(400).send({message: `${error.message} - Id do livro não localizado.`});
+            } else {
+                res.status(200).send(livro);
+            }
         });
     }
 
@@ -18,6 +31,18 @@ class LivrosController {
             }
         });
     }
+
+    static atualizarLivro = (req,res) => {
+        const {id} = req.params;
+        
+        livros.findByIdAndUpdate(id, {$set: req.body}, (error) => {
+            if(error){
+                res.status(400).send({message: error.message});
+            } else {
+                res.status(200).send("Livro atualizado com sucesso!");
+            }
+        });
+    } 
 }
 
 export default LivrosController;
