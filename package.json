@@ -1,17 +1,20 @@
-
 {
   "name": "api-node-livraria",
   "version": "1.0.0",
-  "description": "",
+  "description": "api de livros",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaSilvaNick/api-node-livraria.git"
+  },
+  "keywords": ["api", "livraria", "node"],
+  "author": "Nickolas Silva <nicklops8@gmail.com>",
   "license": "ISC",
+  "homepage": "https://github.com/NaSilvaNick/api-node-livraria#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
