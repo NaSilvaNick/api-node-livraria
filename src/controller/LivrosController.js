@@ -6,6 +6,7 @@ class LivrosController {
         livros
             .find()
             .populate('autor')
+            .populate('editora')
             .exec((error, livros) => {
                 res.status(200).json(livros);
             });
@@ -16,7 +17,8 @@ class LivrosController {
 
         livros
             .findById(id)
-            .populate("autor")
+            .populate('autor')
+            .populate('editora')
             .exec((error,livro) => {
                 if(error){
                     res.status(400).send({message: `${error.message} - Id do livro não localizado.`});
